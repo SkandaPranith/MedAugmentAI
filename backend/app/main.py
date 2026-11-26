@@ -10,7 +10,7 @@ from fastapi.responses import JSONResponse
 from . import APP_VERSION
 from .config import Settings
 from .api.deps import get_ctx, require_api_key
-from .api.v1 import augmentation, datasets, exports, images, jobs
+from .api.v1 import augmentation, benchmarks, datasets, exports, images, jobs
 from .context import create_context
 from .utils.common import AppError
 
@@ -39,5 +39,5 @@ def health(ctx=Depends(get_ctx)):
     return {"status": "ok", "version": APP_VERSION, "db_backend": ctx.settings.db_backend, "auth_required": bool(ctx.settings.api_key)}
 
 
-for module in (datasets, augmentation, jobs, exports, images):
+for module in (datasets, augmentation, jobs, exports, images, benchmarks):
     app.include_router(module.router, prefix="/api/v1", dependencies=[Depends(require_api_key)])

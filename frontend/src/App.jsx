@@ -9,6 +9,7 @@ import JobsPage from './pages/JobsPage.jsx'
 import JobPage from './pages/JobPage.jsx'
 import ResultsPage from './pages/ResultsPage.jsx'
 import ExportsPage from './pages/ExportsPage.jsx'
+import Pix2PixBenchmarkPage from './pages/Pix2PixBenchmarkPage.jsx'
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/jobs/:jobId" element={<JobPage />} />
         <Route path="/jobs/:jobId/results" element={<ResultsPage />} />
         <Route path="/exports" element={<ExportsPage />} />
+        <Route path="/benchmarks/pix2pix" element={<Pix2PixBenchmarkPage />} />
         <Route path="*" element={<p className="p-8">Page not found.</p>} />
       </Route>
     </Routes>
